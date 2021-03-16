@@ -9,7 +9,13 @@ public class GameGrid : MonoInstaller
     [SerializeField]
     GameObject cellPrefab;
 
-    void Start()
+
+    public override void InstallBindings()
+    {
+        Container.Bind<GameGrid>().FromInstance(this).AsSingle();
+    }
+
+    public GameGrid()
     {
         cellGrid = new Cell[3, 3];
         FillGrid();

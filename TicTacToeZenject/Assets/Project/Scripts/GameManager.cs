@@ -8,16 +8,21 @@ using Zenject;
 public class GameManager : MonoInstaller
 {
     PlayerSymbol playerSymbol;
+    [Inject]
     GameGrid gameGrid;
     bool gameRestarting = false;
     float restartTimer = 5f;
     [SerializeField]
     Text winnerText;
 
-    void Start()
+    public override void InstallBindings()
+    {
+        Container.Bind<GameManager>().FromInstance(this).AsSingle();
+    }
+
+    public GameManager()
     {
         playerSymbol = PlayerSymbol.X;
-        gameGrid = FindObjectOfType<GameGrid>();
     }
 
     private void Update()

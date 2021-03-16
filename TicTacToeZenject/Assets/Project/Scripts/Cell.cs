@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class Cell : MonoBehaviour
 {
     PlayerSymbol cellPlayerSymbol = PlayerSymbol.Void;
-    GameManager gameManager;
 
-    private void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
+    [Inject]
+    GameManager gameManager;
 
     //IF BUTTON WAS CLICKED
     public void ButtonChangeState()
