@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using Zenject;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoInstaller
 {
     PlayerSymbol playerSymbol;
     GameGrid gameGrid;
